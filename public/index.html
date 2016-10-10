@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>React Tutorial</title>
+    <!-- Not present in the tutorial. Just for basic styling. -->
+    <link rel="stylesheet" href="css/base.css" />
+    <script src="https://unpkg.com/react@15.3.0/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.0/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+  </head>
+  <body>
+    <div id="content"></div>
+   <!--  <script type="text/babel" src="scripts/example.js"></script> -->
+    <script type="text/babel">
+      var Comment = React.createClass({
+        componentDidMount: function() {
+          addthis.addEventListener('addthis.ready', this.enableAddthis);
+        },
+        enableAddthis: function(){
+          console.log('HEARD EVENT');
+          addthis.layers.refresh();
+        },
+
+        render: function() {
+          return (
+            <div className="addthis_inline_share_toolbox"></div>
+          );
+        }
+      });
+      ReactDOM.render(
+        <Comment/>,
+        document.getElementById('content')
+      );
+    </script>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57f665ac34051119"></script>
+  </body>
+</html>
